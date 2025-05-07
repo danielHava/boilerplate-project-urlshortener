@@ -40,10 +40,10 @@ app.post('/api/shorturl', function(req, res) {
     if(!shortenedURLs.has(urlString)){
       const shortURL = shortenedURLs.size + 1;
       shortenedURLs.set(shortURL, urlString);
-      res.json({original_url: urlString, short_url: shortURL});
+      res.status(201).json({original_url: urlString, short_url: shortURL});
     }
   } else {
-    res.json({error: 'invalid url'});
+    res.status(201).json({error: 'invalid url'});
   }
 });
 
